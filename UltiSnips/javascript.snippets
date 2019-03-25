@@ -34,22 +34,19 @@ endsnippet
 
 snippet rcc "React Class Component" b
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './${2:$1}.css';
+import './${2:$1}.css';
 
 class ${1:`!v expand('%:t:r')`} extends Component {
-	static propTypes = {
-		${2:children: PropTypes.node,
-		className: PropTypes.string,}
-	};
+
 
 	constructor(props) {
 		super(props);
+		this.state = {};
 	}
 
 	render() {
 		return (
-			<${3:div} className={styles.base}>
+			<${3:div} className="${2:$1}__wraper">
 				$0
 			</$3>
 		);
